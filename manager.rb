@@ -10,18 +10,22 @@ class Manager < Employee
     end
 
     def bonus(multipler)
-        sub_salary = 0
-        return self.employee.salary
+            
+        self.sub_salary * multipler
+    end
 
-        if self.is_a?(Manager)
-            # sub_salary += self.salary
-            self.employees.each do |employee|
-                sub_salary += employee.salary
+    def sub_salary
+       sal = self.salary
+       self.employees.each do |employee|
+            if employee.is_a?(Manager)
+                employee.sub_salary
+            else
+                sal += employee.salary
             end
         end
-            
-            
-        sub_salary * multipler
+        sal
+
+        
     end
     
     
