@@ -19,9 +19,11 @@ class Board
     end
 
     def valid_pos?(pos)
-
+        row, col = pos 
+        row >= 0 && row <= 7 && col >= 0 && col <= 7
         
     end
+
 
     def add_piece(piece, pos)
         
@@ -60,10 +62,11 @@ class Board
     # end
 
     def fill_board
-        @rows = Array.new(8) {Array.new(8, '_')}
-        # @rows = Array.new(8) {Array.new(8, NullPiece.new)}
+        # @rows = Array.new(8) {Array.new(8, '_')}
+        @rows = Array.new(8) {Array.new(8, NullPiece.instance)}
         self.fill_back_row(:black)
-        # @rows.fill_back_row(:white)
+
+        self.fill_back_row(:white)
     end
 
 
