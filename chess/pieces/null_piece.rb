@@ -4,6 +4,8 @@ require_relative "piece.rb"
 class NullPiece < Piece
     include Singleton
 
+    attr_reader :color, :board, :pos
+
     def initialize
 
         @color = nil

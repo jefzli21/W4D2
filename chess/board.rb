@@ -3,9 +3,7 @@ require_relative 'pieces'
 class Board 
 
     def initialize
-        self.fill_board #temp test
-        # @rows = Array.new(8){Array.new(8, NullPiece.instance)}
-
+        self.fill_board 
     end
 
     def [](pos)
@@ -59,22 +57,24 @@ class Board
 
     end
 
-    # def fill_pawns(color)
-    #     @rows.each_with_index do |row, i|
-    #         (0...row.length).each do |j|
-    #             if color == :black && i == 1
-    #                 Pawn.new(color, self, [i, j])
-    #             elsif color == :white && i == 6
-    #                 Pawn.new(color, sellf, [i, j])
-
-    # end
+    def fill_pawns(color)
+        @rows.each_with_index do |row, i|
+            (0...row.length).each do |j|
+                if color == :black && i == 1
+                    Pawn.new(color, self, [i, j])
+                elsif color == :white && i == 6
+                    Pawn.new(color, self, [i, j])
+                end
+            end
+        end
+    end
 
     def fill_board
-        # @rows = Array.new(8) {Array.new(8, '_')}
         @rows = Array.new(8) {Array.new(8, NullPiece.instance)}
         self.fill_back_row(:black)
-
         self.fill_back_row(:white)
+        self.fill_pawns(:black)
+        self.fill_pawns(:white)
     end
 
 
