@@ -18,8 +18,13 @@ class Board
         @rows[row][col] = val
     end
 
+    def valid_pos?(pos)
+
+        
+    end
+
     def add_piece(piece, pos)
-   
+        
         self[pos] = piece
     end
 
@@ -57,7 +62,7 @@ class Board
     def fill_board
         @rows = Array.new(8) {Array.new(8, '_')}
         # @rows = Array.new(8) {Array.new(8, NullPiece.new)}
-        # @rows.fill_back_row(:black)
+        self.fill_back_row(:black)
         # @rows.fill_back_row(:white)
     end
 
