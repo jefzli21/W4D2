@@ -1,6 +1,9 @@
 
 
-module Slidable
+module Slideable
+    def moves
+    end
+
 
 end
 
