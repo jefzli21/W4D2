@@ -19,8 +19,8 @@ class Board
     end
 
     def valid_pos?(pos)
-        row, col = pos 
-        row >= 0 && row <= 7 && col >= 0 && col <= 7
+    
+        
         
     end
 
@@ -30,8 +30,15 @@ class Board
         self[pos] = piece
     end
 
-    def move_piece(start_pos, end_pos)
-        rows[0] = []   
+    def move_piece(start_pos, end_pos)    
+        row, col = end_pos 
+        
+        raise Error if self[start_pos].nil?
+        raise Error if row < 0 || row > 7 || col < 0 && col > 7
+        self[end_pos] = self[start_pos]
+        self[start_pos] = NullPiece.instance
+
+
         
     end
 

@@ -16,7 +16,8 @@ class Piece
     end
 
     def empty?
-        self.empty?
+        false
+
     end
 
     def valid_moves
